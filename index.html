@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Docente | Algoritmos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Herramientas Algorítmicas para Docentes</h1>
+            <p>Automatización de procesos académicos mediante JavaScript</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Ejemplo Secuencial -->
+            <article class="module-card">
+                <div class="module-header">
+                    <h2>1. Secuencial: Carga Horaria</h2>
+                    <span class="badge">Estructura Lineal</span>
+                </div>
+                <p>Calcula el total de horas de un curso sumando las horas de clase presencial y el trabajo autónomo del estudiante.</p>
+                <div class="form-control">
+                    <label for="horasPresenciales">Horas presenciales (semanales):</label>
+                    <input type="number" id="horasPresenciales" value="4" min="1">
+                </div>
+                <div class="form-control">
+                    <label for="horasAutonomas">Horas autónomas (semanales):</label>
+                    <input type="number" id="horasAutonomas" value="8" min="1">
+                </div>
+                <div class="form-control">
+                    <label for="semanas">Semanas del periodo:</label>
+                    <input type="number" id="semanas" value="16" min="1">
+                </div>
+                <button onclick="calcularCargaHoraria()">Calcular Total</button>
+                <div id="resultadoCarga" class="alert hidden"></div>
+            </article>
+
+            <!-- Ejemplo Condicional -->
+            <article class="module-card">
+                <div class="module-header">
+                    <h2>2. Condicional: Nivel de Desempeño</h2>
+                    <span class="badge">Decisiones (if/else)</span>
+                </div>
+                <p>Clasifica el rendimiento de un estudiante según el decreto de evaluación (Bajo, Básico, Alto, Superior) basado en un puntaje de 0 a 100.</p>
+                <div class="form-control">
+                    <label for="puntaje">Puntaje obtenido (0-100):</label>
+                    <input type="number" id="puntaje" placeholder="Ej: 85" min="0" max="100">
+                </div>
+                <button onclick="determinarDesempeno()">Clasificar Desempeño</button>
+                <div id="resultadoDesempeno" class="alert hidden"></div>
+            </article>
+
+            <!-- Ejemplo Iterativo -->
+            <article class="module-card full-width">
+                <div class="module-header">
+                    <h2>3. Iterativo: Generador de Rúbricas</h2>
+                    <span class="badge">Ciclos (while)</span>
+                </div>
+                <p>Crea automáticamente las filas para una rúbrica de evaluación dependiendo de cuántos criterios necesites calificar.</p>
+                <div class="form-inline">
+                    <label for="numCriterios">Cantidad de criterios a evaluar:</label>
+                    <input type="number" id="numCriterios" value="3" min="1" max="10">
+                    <button onclick="generarRubrica()">Generar Filas</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaRubrica" class="hidden">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Criterio a Evaluar</th>
+                                <th>Puntaje Máximo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoRubrica">
+                            <!-- Aquí se inyectarán las filas con JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
